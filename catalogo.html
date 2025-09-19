@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máximo Vasos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
+
+    <script>
+        // Detecta dispositivos móveis e redireciona
+        if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            window.location.href = "catalogo-mobile.html";
+        }
+    </script>
+
+    <style>
+
+body {
+    background-image: url('./assest/imagens/fundosite2.png');
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;    
+}
+
+.conteudoindex {
+  min-height: 450px;
+  max-height: 450px;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 0 auto 10px auto; /* centraliza a div na horizontal */
+  border-radius: 50px;
+
+  display: flex;
+  flex-direction: column; /* organiza os filhos em coluna */
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center;     /* centraliza horizontalmente */
+  text-align: center;      /* centraliza texto do h2 */
+}
+.carrossel {
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: none;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carrossel-slide {
+  display: flex;
+  width: max-content;
+  animation: scrollCarrossel 10s linear infinite;
+}
+
+.carrossel-slide img {
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+/* ROLA TODO O CONTEÚDO (incluindo as imagens duplicadas) */
+@keyframes scrollCarrossel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+    <div class="row">
+        <img src="./assest/imagens/logohomecelular.svg" alt="Logo do Máximo Vasos" class="logo">
+    </div>
+
+    <div class="menu-container">
+        <nav class="menu">
+            <a href="index.html">HOME</a>
+            <a href="sobre.html">SOBRE</a>
+            <a href="projetos.html">PROJETOS SOB MEDIDA</a>
+            <a href="https://maximovasos.lojavirtualnuvem.com.br/" target="_blank" rel="noopener noreferrer">
+              LOJA VIRTUAL
+             </a>
+            <a href="contato.php">CONTATO</a>
+        </nav>
+    </div>
+
+    <div class="conteudoindex">
+  <div style="width: 90%; text-align: center;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #ffffff; margin-bottom: 1rem;">
+      CATÁLOGOS
+    </h2>
+
+    <p style="color: #fff; font-size: 1rem; margin-bottom: 1rem;">
+      Clique abaixo para baixar nossos catálogos atualizados:
+    </p>
+
+    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+      <a href="/assest/catalogospdf/ESMALTADOS - MAXIMO VASOS.pdf" download
+        style="background-color: #024BAA; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+        📥 Baixar Catálogo Esmaltados 2025
+      </a>
+
+      <a href="/assest/catalogospdf/NATURAIS - MAXIMO VASOS.pdf" download
+        style="background-color: #024BAA; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+        📥 Baixar Catálogo Naturais 2025
+      </a>
+    </div>
+
+    <!-- Carrossel de imagens -->
+    <div class="carrossel">
+  <div class="carrossel-slide">
+    <img src="/assest/catalogo/esmaltados/Americano.png" alt="Vaso Esmaltado 1">
+    <img src="/assest/catalogo/esmaltados/Atenas.png" alt="Vaso Esmaltado 2">
+    <img src="/assest/catalogo/esmaltados/Bacia-Vitoria.png" alt="Vaso Esmaltado 3">
+    
+    <!-- DUPLICANDO AS MESMAS IMAGENS -->
+    <img src="/assest/catalogo/esmaltados/Americano.png" alt="Vaso Esmaltado 1 (cópia)">
+    <img src="/assest/catalogo/esmaltados/Atenas.png" alt="Vaso Esmaltado 2 (cópia)">
+    <img src="/assest/catalogo/esmaltados/Bacia-Vitoria.png" alt="Vaso Esmaltado 3 (cópia)">
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+</div>
+
+
+    <div class="rodape">
+        <a href="tel://19993946374" class="telefone">
+            <img src="./assest/icones/telefone.png" alt="Telefone" class="icon">
+            (19) 99394-6374
+        </a>
+
+        <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" class="whatsapp">
+            <img src="./assest/icones/whatsapp.png" alt="WhatsApp" class="icon">
+            Chame no WhatsApp
+        </a>
+
+        <a href="mailto:contato@maximovasos.com.br" class="email">
+            <img src="./assest/icones/email.png" alt="E-mail" class="icon">
+            E-mail
+        </a>
+
+        <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="endereco">
+            <img src="./assest/icones/endereco.png" alt="Endereço" class="icon">
+            Endereço
+        </a>
+    </div>
+
+    <div class="direitos">
+        <p>
+            Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy; 
+            <span id="ano"></span> | Site desenvolvido por: 
+            <a href="https://instagram.com/diegoborgi" class="diego" target="_blank">Diego Borgi</a>
+        </p>
+    </div>
+
+    <script>
+        // Atualiza o ano automaticamente
+        document.getElementById('ano').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

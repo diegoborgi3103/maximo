@@ -1,0 +1,197 @@
+:root {
+    --white-color: #ffffff;
+    --black-color: #000000;
+}
+
+
+
+/* Row - Topo / Logo */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 100px;
+    max-height: 100px;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 1rem 2rem;      
+    z-index: 1000;   
+    margin: 0.5rem auto;
+}
+
+/* Menu */
+.menu-container {
+   
+    margin-top: 3px;
+    min-height: 43px;
+    max-height: 43px;
+    box-sizing: border-box;
+    padding: 0 2rem;
+    box-shadow: 0 10px 5px rgba(255, 255, 255, 0.5);
+    background-color: #3f3f3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    width: 90%;
+    margin: 1rem auto;
+    border-radius: 50px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #faf7f7;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    color: #FFD700;
+    transform: scale(1.1);
+}
+
+/* Conteúdo */
+.conteudo {
+    width: 80%;
+    min-height: 450px;   
+    max-height: 450px;
+    box-sizing: border-box;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.titulo-sobre {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #8B4513;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.conteudo p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    font-weight: bold;
+    max-width: 60%;
+}
+
+/* Rodapé */
+.rodape {
+    width: 70%;
+    max-height: 30px;
+    min-height: 30px;
+    box-sizing: border-box;
+    padding: 0 2rem;
+    box-shadow: 0 5px 5px rgba(255, 255, 255, 0.5);
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 50px;
+}
+
+.rodape a {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.rodape a:hover {
+    color: #FFD700;
+    transform: scale(1.1);
+}
+
+.rodape .icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Direitos */
+.direitos {
+    width: 60%;
+    max-height: 30px;
+    min-height: 30px;
+    box-sizing: border-box;
+    padding: 0 2rem;
+    box-shadow: 0 10px 5px rgba(255, 255, 255, 0.5);
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 50px;
+    color: #ffffff;
+    margin: 0.5rem auto;
+}
+
+.direitos a.diego {
+    color: #969393;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.direitos a.diego:hover {
+    color: #faf8f8;
+    text-decoration: underline;
+}
+/* div carrosel */
+/* Contatos do Carrossel */
+.contatocarrosel {
+    width: 100%; /* ocupa toda a largura */
+    display: flex; /* deixa os contatos lado a lado */
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center; /* centraliza verticalmente */
+    gap: 2rem; /* espaço entre os contatos */
+    box-sizing: border-box;
+    padding: 1rem 0; /* espaçamento superior e inferior */
+    background: none; /* sem fundo */
+    box-shadow: none; /* sem sombra */
+}
+
+.contatocarrosel a {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: #333; /* cor do texto, pode ajustar */
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.contatocarrosel a:hover {
+    color: #FFD700; /* muda cor ao passar o mouse */
+    transform: scale(1.1);
+}
+
+.contatocarrosel .icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+ .logo {
+
+ }

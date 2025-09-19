@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Máximo Vasos</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
+
+  <style>
+    body {
+      background-image: url('./assest/imagens/fundosite2.png');
+      background-size: cover;
+      background-position: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .conteudo {
+      width: 100%;
+      height: 505px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    /* Setas */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+      z-index: 10;
+    }
+
+    .carousel-arrow:hover {
+      background: rgba(255, 215, 0, 0.9);
+    }
+
+    .carousel-arrow.prev {
+      left: 20px;
+    }
+
+    .carousel-arrow.next {
+      right: 20px;
+    }
+
+    .contato-carrossel {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin: 1rem 0;
+    }
+
+    .contato-carrossel a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #000000;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      background-color: rgba(255, 254, 254, 0.479);
+      padding: 10px 15px;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .contato-carrossel a:hover {
+      background-color: rgba(255, 215, 0, 0.9);
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .contato-carrossel a img {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+    }
+
+    .contato-carrossel a:hover img {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      window.location.href = "sobre-mobile.html";
+    }
+  </script>
+
+  <div class="row">
+    <img src="./assest/imagens/logohomecelular.svg" alt="Logo do Máximo Vasos" class="logo">
+  </div>
+
+  <div class="menu-container">
+    <nav class="menu">
+      <a href="index.html">HOME</a>
+      <a href="catalogo.html">CATÁLOGOS</a>
+      <a href="projetos.html">PROJETOS SOB MEDIDA</a>
+      <a href="https://maximovasos.lojavirtualnuvem.com.br/" target="_blank" rel="noopener noreferrer">
+        LOJA VIRTUAL
+       </a>
+      <a href="contato.php">CONTATO</a>
+    </nav>
+  </div>
+
+  <div class="conteudo">
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <h1 style="
+               font-family: 'Playfair Display', serif; 
+               font-size: 2rem; 
+               color: #000000; 
+               background-color: rgba(255, 254, 254, 0.479);   
+               display: inline-block; 
+               padding: 5px 10px; 
+               border-radius: 20px;">
+            Nossa História
+          </h1>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #000000; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+            Com mais de 30 anos de tradição, a Máximo Vasos está localizada no principal polo cerâmico do país,
+            reconhecido pela qualidade da argila.
+          </p>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #000000; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+            Como empresa familiar em sua segunda geração, priorizamos atendimento e relacionamento com clientes
+            lojistas e parceiros.
+          </p>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #000000; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+            Investimos em tecnologia no processo de fabricação, evidenciando sempre a beleza e a qualidade de nossos
+            vasos.
+          </p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <h1 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #000000; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 5px 10px; border-radius: 20px;">
+            Nossos Clientes
+          </h1>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #000000; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+            Atendemos lojistas, decoradores e empresas em todo o Brasil, com produtos de qualidade entregues com
+            rapidez e segurança.
+          </p>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #000000; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+            A satisfação do cliente é prioridade, buscando superar expectativas com inovação e excelência.
+          </p>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <h1 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #000000; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 5px 10px; border-radius: 20px;">
+            Entrega e Logística
+          </h1>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #000000; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+            Contamos com logística própria para garantir que nossos vasos cheguem intactos em qualquer região do país.
+          </p>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #000000; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+            Utilizamos veículos como Saveiro para pequenas entregas e Iveco Daily para maiores. Nosso time é altamente
+            capacitado.
+          </p>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #000000; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+            Do polo cerâmico de Santa Gertrudes para todo o Brasil!
+          </p>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <h1 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #333; background-color: rgba(255, 254, 254, 0.479); border-radius: 15px; padding: 10px 15px;">Entre em Contato Conosco.</h1>
+          <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #444242; max-width: 600px; background-color: rgba(255, 254, 254, 0.479); display: inline-block; padding: 10px 15px; border-radius: 15px; text-align: center;">
+           Clique na opção desejada abaixo.
+          </p>
+          <div class="contato-carrossel">
+            <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações">
+              <img src="./assest/icones/whatsapp.png" alt="WhatsApp"> Chame no WhatsApp
+            </a>
+            <a href="tel://19993273771">
+              <img src="./assest/icones/telefonecarrosel.png" alt="Telefone"> (19) 99394-6374
+            </a>
+            <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9">
+              <img src="./assest/icones/endereco.png" alt="Endereço"> Endereço
+            </a>
+            <a href="mailto:contato@maximovasos.com.br">
+              <img src="./assest/icones/email.png" alt="Email"> E-mail
+            </a>
+            
+          </div>
+          
+        </div>
+
+      </div>
+
+      <!-- Setas -->
+      <button class="carousel-arrow prev">&#10094;</button>
+      <button class="carousel-arrow next">&#10095;</button>
+    </div>
+  </div>
+
+  <div class="rodape">
+    <a href="tel://19993946374" class="telefone"><img src="./assest/icones/telefone.png" alt="Telefone" class="icon">
+      (19) 99394-6374</a>
+    <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações"
+      class="whatsapp"><img src="./assest/icones/whatsapp.png" alt="WhatsApp" class="icon"> Chame no WhatsApp</a>
+    <a href="mailto:contato@maximovasos.com.br" class="email"><img src="./assest/icones/email.png" alt="Email"
+        class="icon"> E-mail</a>
+    <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="endereco"><img src="./assest/icones/endereco.png"
+        alt="Endereço" class="icon"> Endereço</a>
+  </div>
+
+  <div class="direitos">
+    <p>
+      Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy;
+      <span id="ano"></span> | Site desenvolvido por:
+      <a href="https://instagram.com/diegoborgi" class="diego" target="_blank">Diego Borgi</a>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    const wrapper = document.querySelector('.carousel-wrapper');
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    document.querySelector('.carousel-arrow.next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    });
+
+    document.querySelector('.carousel-arrow.prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Máximo Vasos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('./assest/imagens/fundocelular.png');
+    background-size: cover;
+    background-position: center;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* LOGO */
+  .row { margin-top: 10px; width: 100%; }
+  .row img {
+    width: 300px;         /* aumenta a logo */
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 480px) {
+    .row img {
+      width: 250px;      /* menor no celular */
+    }
+  }
+
+  /* MENU SUPERIOR */
+  .menucelular {
+    width: 95%;
+    height: 40px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 3px rgba(253, 252, 252, 0.3);
+    border-radius: 50px;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .menucelular img.icon { width: 20px; }
+
+  /* DROPDOWN */
+  .dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #444;
+    border-radius: 0 0 15px 15px; /* só cantos de baixo arredondados */
+    z-index: 1000;
+  }
+
+  .dropdown.show { display: flex; }
+
+  .close-btn {
+    text-align: right;
+    padding: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    background-color: #333;
+    border-bottom: 1px solid #555;
+  }
+
+  .dropdown a {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid #555;
+  }
+
+  .dropdown a:hover { background-color: #666; }
+  .dropdown a:last-child { border-bottom: none; }
+
+  /* TEXTO CENTRAL */
+  .welcome p {
+    font-size: 0.9rem;
+    color: #000;
+    background-color: rgba(255, 254, 254, 0.8);
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: 15px auto;
+    width: 90%;
+    text-align: center;
+  }
+
+  /* BOTÕES */
+  .btn-video, .btn-informacoes {
+    display: block;
+    margin: 10px auto 0;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+  }
+
+  .btn-video {
+    width: 80%;
+    max-width: 300px;
+    background-color: #4400ff;
+  }
+  .btn-video:hover { background-color: #e03e00; }
+
+  .btn-informacoes {
+    width: 70%;
+    max-width: 250px;
+    background-color: #25D366;
+  }
+  .btn-informacoes:hover { background-color: #128C7E; }
+
+  /* RODAPÉ */
+  .direitoscelular {
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #f8f7f7;
+    padding: 10px;
+    background-color: #333;
+    margin-top: auto;
+  }
+  .direitoscelular a {
+    color: #a699c5;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  .direitoscelular a:hover { color: #600be9; }
+</style>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <div class="row">
+    <img src="./assest/imagens/logohomecelular.svg" alt="Logo do Máximo Vasos" class="logo">
+  </div>
+
+  <!-- MENU -->
+  <div class="menucelular">
+    <div class="menu-btn" onclick="toggleMenu()">
+      <img src="./assest/icones/list.png" alt="menu" class="icon"> MENU
+    </div>
+
+    <div class="dropdown" id="dropdownMenu">
+      <div class="close-btn" onclick="toggleMenu()">✖</div>
+      <a href="sobre-mobile.html">Sobre</a>
+      <a href="catalogo-mobile.html">Catálogos</a>
+      <a href="projetos-mobile.html">Projetos sob medida</a>
+      <a href="https://maximovasos.lojavirtualnuvem.com.br/" target="_blank" rel="noopener noreferrer">
+        Loja Virtual
+       </a>
+      <a href="contato-mobile.php">Contato</a>
+    </div>
+  </div>  
+
+  <!-- TEXTO PRINCIPAL -->
+  <div class="welcome">
+    <p>Bem Vindo à Máximo Vasos</p>
+    <p>Somos uma fábrica localizada em Santa Gertrudes-SP, especializada em trabalhar com barro, produzindo vasos de alta qualidade para todos os estilos. Aqui você encontra desde vasos naturais até os sofisticados esmaltados, prontos para valorizar qualquer ambiente. Vendemos no atacado e no varejo e contamos com frota própria para entregas.</p>
+  </div>
+
+  <!-- BOTÃO VIDEO -->
+  <a href="https://www.youtube.com/watch?v=ByszUu1dPzQ" id="btnVideo" class="btn-video">VEJA UM VÍDEO</a>
+
+  <!-- BOTÃO WHATSAPP -->
+  <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" target="_blank" class="btn-informacoes">+ INFORMAÇÕES</a>
+
+  <!-- RODAPÉ -->
+  <div class="direitoscelular">
+    <p>Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy; <span id="ano"></span></p>
+    <p>Site desenvolvido por: <a href="https://instagram.com/diegoborgi" target="_blank">Diego Borgi</a></p>
+  </div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("dropdownMenu").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.closest('.menucelular') && !event.target.closest('.dropdown')) {
+    document.getElementById("dropdownMenu").classList.remove("show");
+  }
+}
+document.getElementById('btnVideo').addEventListener('click', function(e){
+    e.preventDefault();
+    window.open('https://www.youtube.com/watch?v=ByszUu1dPzQ', 'video', 'width=800,height=450,top=100,left=100');
+});
+document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Máximo Vasos</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #c5c2c2;
+  }
+  
+  .menucelular {
+  margin: 3px auto;              /* centraliza horizontalmente */
+  width: 95%;
+  height: 40px;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 5px rgba(253, 253, 253, 0.4);
+  position: relative;
+  border-radius: 50px;
+}
+
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .menucelular img.icon { width: 20px; height: auto; }
+
+  .dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 151px;
+  left: 50%;                    /* joga para o meio */
+  transform: translateX(-50%);  /* corrige para centralizar */
+  width: 95%;
+  background-color: #444;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  z-index: 1000;
+  border-radius: 50px;
+}
+
+
+  .close-btn {
+    text-align: right;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    background-color: #333;
+    border-bottom: 1px solid #555;
+  }
+
+  .dropdown a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid #555;
+    transition: background 0.3s;
+  }
+
+  .dropdown a:last-child { border-bottom: none; }
+  .dropdown a:active { background-color: #666; }
+  .dropdown.show { display: flex; }
+
+  .welcome {
+    text-align: center;
+    padding: 0 10px;
+    margin: 5px;
+  }
+
+  .welcome h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #333;
+    margin: 4px 0 5px 0;
+  }
+
+  .welcome p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto 10px auto;
+  }
+
+  /* BOTÃO MAIS INFORMAÇÕES */
+  .btn-informacoes {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #25D366; /* verde WhatsApp */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-informacoes:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+  }
+
+  /* DIREITOS */
+  .direitoscelular {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #ffffff;
+    padding: 10px 15px;
+    margin-top: 0px;
+    line-height: 1.4;
+    box-shadow: 0 10px 1px rgba(0,0,0,0.2);
+    background-color: #333;
+  }
+
+  .direitoscelular a {
+    color: #978dad;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s, text-decoration 0.3s;
+  }
+
+  .direitoscelular a:hover {
+    color: #600be9;
+    text-decoration: none;
+  }
+
+  /* Responsividade */
+  @media (max-width: 480px) {
+    .welcome h2 { font-size: 1.1rem; }
+    .welcome p { font-size: 0.85rem; }
+    .menucelular { height: 35px; }
+    .direitoscelular { font-size: 0.7rem; padding: 8px 10px; }
+    .btn-informacoes { padding: 8px 16px; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="row">
+  <img src="./assest/imagens/logohomecelular.svg" alt="Logo do Máximo Vasos" class="logo">
+</div>
+
+<div class="menucelular">
+  <div class="menu-btn" onclick="toggleMenu()">
+    <img src="./assest/icones/list.png" alt="menu" class="icon"> MENU
+  </div>
+</div>
+
+<div class="dropdown" id="dropdownMenu">
+  <div class="close-btn" onclick="toggleMenu()">✖</div>
+  <a href="index-mobile.html">Home</a>
+  <a href="sobre-mobile.html">Sobre</a>
+  <a href="catalogo-mobile.html">Catálogos</a>
+  <a href="https://maximovasos.lojavirtualnuvem.com.br/" target="_blank" rel="noopener noreferrer">
+        Loja Virtual
+       </a>
+  <a href="contato-mobile.php">Contato</a>
+</div>
+
+<div class="welcome">
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #4A3F35; margin-bottom: 0.8rem;">
+        Projetos Sob Medida
+    </h1>
+
+    <p style="font-size: 0.95rem; line-height: 1.5; color: #333; margin-bottom: 0.8rem;">
+        Na Máximo Vasos, cada projeto sob medida é único e feito com cuidado desde o início. Trabalhamos com vasos de barro natural, que passam por um processo artesanal, começando pelo modelamento, onde damos forma e estilo ao vaso. Depois, os vasos passam pelo tempo de secagem adequado, essencial para garantir resistência e qualidade. Após essa etapa, ocorre a primeira queima, que dura aproximadamente três dias, resultando em vasos naturais. Os vasos que receberão pintura fria necessitam de acabamento adicional, enquanto os esmaltados recebem a aplicação do esmalte, que confere cor, acabamento e proteção às peças, seguido de uma segunda queima, tornando o produto finalizado e pronto para uso.
+        Esse processo artesanal exige <strong>tempo hábil e condições climáticas adequadas, podendo chegar até 15 dias</strong> para que cada vaso saia perfeito, mantendo a qualidade que você espera. Por isso, os projetos são planejados com cuidado e cronograma definido, garantindo que cada detalhe seja executado com excelência.
+    </p>
+
+    <p style="font-size: 0.95rem; line-height: 1.5; color: #333; margin-bottom: 0.8rem;">
+        Atendemos projetos de diversos portes, desde residenciais até corporativos, incluindo <strong>shoppings, empresas e espaços comerciais</strong>. Trabalhamos com especificações e combinações de quantidade mínima, garantindo que cada vaso seja produzido de acordo com a necessidade do cliente. 
+        Nosso objetivo é transformar suas ideias em realidade, oferecendo soluções exclusivas e personalizadas, com a tradição e o cuidado que só uma fábrica especializada em vasos pode entregar. Entre em contato conosco e vamos criar uma parceria de sucesso.
+    </p>
+  
+  <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" target="_blank" class="btn-informacoes">+ INFORMAÇÕES</a>
+</div>
+
+<div class="direitoscelular">
+  <p>
+    Todos os direitos reservados à Máximo Vasos - CNPJ: 13.925.067/0001-89 &copy; 
+    <span id="ano"></span> | Site desenvolvido por: 
+    <a href="https://instagram.com/diegoborgi" target="_blank">Diego Borgi</a>
+  </p>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("dropdownMenu").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.closest('.menucelular') && !event.target.closest('.dropdown')) {
+    document.getElementById("dropdownMenu").classList.remove("show");
+  }
+}
+
+// Atualiza o ano automaticamente
+document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

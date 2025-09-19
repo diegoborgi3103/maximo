@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máximo Vasos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
+
+    <script>
+        // Redireciona dispositivos móveis automaticamente
+        if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.href = "403-mobile.html";
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="row">
+        <img src="./assest/imagens/logohomecelular.svg" alt="Logo do Máximo Vasos" class="logo">
+    </div>
+
+    <div class="menu-container">
+        <nav class="menu">
+            <a href="index.html">HOME</a>
+            <a href="sobre.html">SOBRE</a>
+            <a href="catalogo.html">CATÁLOGOS</a>
+            <a href="projetos.html">PROJETOS SOB MEDIDA</a>
+            <a href="https://maximovasos.lojavirtualnuvem.com.br/" target="_blank" rel="noopener noreferrer">
+        LOJA VIRTUAL
+       </a>
+            <a href="contato.php">CONTATO</a>
+        </nav>
+    </div>
+
+    <div class="conteudo"
+        style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:60vh; text-align:center; background-color:#E6D8C9; padding:2rem;">
+        <h1 style="font-family:'Playfair Display', serif; font-size:2.5rem; color:#8B0000; margin-bottom:1rem;">403 -
+            Acesso Negado</h1>
+        <p style="font-family:'Roboto', sans-serif; font-size:1.2rem; color:#333;">
+            Ops! Você não tem permissão para acessar esta página.
+        </p>
+        <p>
+            <a href="index.html" style="color:#8B4513; text-decoration:underline;">Voltar para a página inicial</a>
+        </p>
+    </div>
+
+    <div class="rodape">
+        <a href="tel://19993946374" class="telefone">
+            <img src="./assest/icones/telefone.png" alt="Telefone" class="icon">
+            (19) 99394-6374
+        </a>
+
+        <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações"
+            class="whatsapp">
+            <img src="./assest/icones/whatsapp.png" alt="WhatsApp" class="icon">
+            Chame no WhatsApp
+        </a>
+
+        <a href="mailto:contato@maximovasos.com.br" class="email">
+            <img src="./assest/icones/email.png" alt="E-mail" class="icon">
+            E-mail
+        </a>
+
+        <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="endereco">
+            <img src="./assest/icones/endereco.png" alt="Endereço" class="icon">
+            Endereço
+        </a>
+    </div>
+
+    <div class="direitos">
+        <p>
+            Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy;
+            <span id="ano"></span> | Site desenvolvido por:
+            <a href="https://instagram.com/diegoborgi" class="diego" target="_blank">Diego Borgi</a>
+        </p>
+    </div>
+
+    <script>
+        // Atualiza o ano automaticamente
+        document.getElementById('ano').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

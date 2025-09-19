@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Máximo Vasos</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
+
+<script>
+// Detecta celular e redireciona para index-mobile.html
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isSmallScreen = window.innerWidth < 768;
+
+  if (isMobile || isSmallScreen) {
+    window.location.href = "index-mobile.html";
+  }
+});
+</script>
+
+<style>
+
+body {
+    background-image: url('./assest/imagens/fundosite1.png');
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;    
+}
+
+.conteudoindex {
+  min-height: 450px;
+  max-height: 450px;
+  width: 50%;
+  background-color: rgba(252, 252, 252, 0.692);
+  margin: 0 auto 10px auto; /* centraliza a div na horizontal */
+  border-radius: 50px;
+
+  display: flex;
+  flex-direction: column; /* organiza os filhos em coluna */
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center;     /* centraliza horizontalmente */
+  text-align: center;      /* centraliza texto do h2 */
+}
+
+
+/* Links com destaque */
+.link-destaque {
+    font-weight: bold;
+    color: #ff3300;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.link-destaque:hover {
+    color: #858f00;
+    transform: scale(1.05);
+}
+
+/* Botão do vídeo */
+.btn-informacoes {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 12px 24px;
+    background: #024BAA;
+    color: #0a0a0a;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+    cursor: pointer;
+    border-color: #ff7b00;
+}
+.btn-informacoes:hover {
+    background: #646566;
+}
+
+/* Modal (popup) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  width: 80%;
+  max-width: 700px;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modal-content iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+<div class="row">
+     <img src="./assest/imagens/logohomecelular.svg" alt="Logo do Máximo Vasos" class="logo">
+</div>
+
+<div class="menu-container">
+    <nav class="menu">
+        <a href="sobre.html">SOBRE</a>
+        <a href="catalogo.html">CATÁLOGOS</a>
+        <a href="projetos.html">PROJETOS SOB MEDIDA</a>
+        <a href="https://maximovasos.lojavirtualnuvem.com.br/" target="_blank" rel="noopener noreferrer">
+        LOJA VIRTUAL
+       </a>
+        <a href="contato.php">CONTATO</a>
+        
+    </nav>
+</div>
+
+<div class="conteudoindex">   
+
+      <div style="width: 90%;">
+
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #070707; margin-bottom: 1rem;">
+            Bem Vindo à Máximo Vasos
+        </h2>
+
+        <p style="font-size: 1rem; line-height: 1.4; color: #080808; margin-bottom: 0.5rem;">
+           <strong> Somos uma fábrica localizada em Santa Gertrudes-SP, especializada em trabalhar com barro, produzindo vasos de alta qualidade para todos os estilos. 
+            Aqui você encontra desde vasos naturais até os sofisticados esmaltados, prontos para valorizar qualquer ambiente.</strong>
+        </p>
+
+        <p style="font-size: 1rem; line-height: 1.4; color: #080808; margin-bottom: 0.5rem;">
+            <strong>Contamos com entrega própria para garantir que seus pedidos cheguem com segurança e no prazo certo. 
+            Além disso, desenvolvemos projetos sob medida, personalizados de acordo com a sua necessidade e estilo.</strong>
+        </p>
+
+        <p style="font-size: 1rem; line-height: 1.4; color: #080808; margin-bottom: 0.2rem;">
+        <strong>Trabalhamos tanto com atacado quanto com varejo, oferecendo produtos para lojistas, decoradores ou para você que deseja deixar sua casa mais bonita com vasos exclusivos.
+            Descubra a qualidade, o design e a tradição da Máximo Vasos e transforme seus ambientes com nossas peças únicas!</stong>
+        </p>
+
+        <p style="font-size: 1rem; line-height: 1.4; color: #0c0c0c; margin-top: 0.2rem;">
+        </stong> Veja nossos 
+            <a href="catalogo.html" class="link-destaque">CATÁLOGOS</a> 
+            e vamos fechar um ótimo negócio, ou 
+            <a href="projetos.html" class="link-destaque">PROJETO SOB MEDIDA</a>, 
+            veja nossas políticas para projetos. </p></strong>
+        </p>
+    
+        <!-- Botão que abre o modal -->
+        <button class="btn-informacoes" onclick="abrirModal()">VEJA UM VÍDEO AQUI</button>
+    
+
+   
+  
+
+
+ <!-- Modal do vídeo -->
+  <div id="meuModal" class="modal">
+   <div class="modal-content">
+    <span class="close" onclick="fecharModal()">&times;</span>
+    <iframe id="video" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+   </div>
+  </div>
+
+  </div>
+
+</div>
+
+<div class="rodape">
+    <a href="tel://19993946374" class="telefone">
+       <img src="./assest/icones/telefone.png" alt="Telefone" class="icon">
+       (19) 99394-6374
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=5519993946374&text=Olá,%20preciso%20de%20mais%20informações" class="whatsapp">
+      <img src="./assest/icones/whatsapp.png" alt="WhatsApp" class="icon">
+      Chame no WhatsApp
+    </a>
+    <a href="mailto:contato@maximovasos.com.br" class="email">
+      <img src="./assest/icones/email.png" alt="E-mail" class="icon">
+      E-mail
+    </a>
+    <a href="https://maps.app.goo.gl/BvkWPKLkvKpVhbzH9" class="endereco">
+      <img src="./assest/icones/endereco.png" alt="Endereço" class="icon">
+      Endereço
+    </a>
+</div>
+
+<div class="direitos">
+    <p>
+        Todos os direitos reservados à Máximo Vasos CNPJ: 13.925.067/0001-89 &copy; 
+        <span id="ano"></span> | Site desenvolvido por: 
+        <a href="https://instagram.com/diegoborgi" class="diego" target="_blank">Diego Borgi</a>
+    </p>
+</div>
+
+
+<script>
+// Atualiza o ano automaticamente
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+// CARROSSEL AUTOMÁTICO PARA TODOS
+document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-slide');
+
+    carousels.forEach(slide => {
+        const images = slide.querySelectorAll('img');
+        let index = 0;
+
+        function showSlide(i) {
+            if(i < 0) index = images.length - 1;
+            else if(i >= images.length) index = 0;
+            else index = i;
+            slide.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(() => showSlide(index + 1), 3000);
+    });
+});
+
+// Funções do modal do vídeo
+function abrirModal() {
+  var modal = document.getElementById("meuModal");
+  var iframe = document.getElementById("video");
+  modal.style.display = "block";
+  iframe.src = "https://www.youtube.com/embed/ByszUu1dPzQ?autoplay=1";
+}
+
+function fecharModal() {
+  var modal = document.getElementById("meuModal");
+  var iframe = document.getElementById("video");
+  modal.style.display = "none";
+  iframe.src = ""; // parar o vídeo
+}
+
+// Fecha clicando fora do modal
+window.onclick = function(event) {
+  var modal = document.getElementById("meuModal");
+  if (event.target == modal) {
+    fecharModal();
+  }
+}
+</script>
+
+</body>
+</html>

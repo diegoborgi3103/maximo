@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso Negado - 403 | Máximo Vasos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-png" href="./assest/imagens/favicon.png">
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('./assest/imagens/fundocelular.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  /* LOGO */
+  .row { margin-top: 20px; width: 100%; }
+  .row img {
+    width: 320px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 480px) {
+    .row img { width: 320px; }
+  }
+
+  /* BLOCO DE ERRO */
+  .erro403 {
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+  }
+
+  .erro403 h1 {
+    font-size: 3rem;
+    color: #8B0000;
+    margin: 0 0 10px;
+  }
+
+  .erro403 h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .erro403 p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 20px;
+  }
+
+  /* BOTÃO VOLTAR */
+  .btn-home {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #25D366;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-home:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+  }
+
+  /* RODAPÉ */
+  .direitoscelular {
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #f8f7f7;
+    padding: 10px;
+    background-color: #333;
+  }
+  .direitoscelular a {
+    color: #a699c5;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  .direitoscelular a:hover { color: #600be9; }
+</style>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <div class="row">
+    <img src="./assest/imagens/logohomecelular.svg" alt="Logo do Máximo Vasos">
+  </div>
+
+  <!-- BLOCO ERRO -->
+  <div class="erro403">
+    <h1>500</h1>
+    <h2>Erro Interno do Servidor</h2>
+    <p>Ops! Algo deu errado em nosso servidor. Tente novamente mais tarde ou volte para a página inicial.</p>
+    <a href="index.html" class="btn-home">Voltar para Home</a>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="direitoscelular">
+    <p>
+      Todos os direitos reservados à Máximo Vasos - CNPJ: 13.925.067/0001-89 &copy; 
+      <span id="ano"></span>
+    </p>
+    <p>Site desenvolvido por: <a href="https://instagram.com/diegoborgi" target="_blank">Diego Borgi</a></p>
+  </div>
+
+<script>
+  // Atualiza o ano automaticamente
+  document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
