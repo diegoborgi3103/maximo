@@ -35,8 +35,6 @@ input:focus {
   outline: none;
 }
 
-
-
 .table-wrapper {
   overflow-x: auto;
   margin-top: 20px;
@@ -121,40 +119,38 @@ button#gerarPdfBtn:hover {
 }
 
 #dropdownProdutos div:hover {
-  background: #777; /* tom mais claro ao passar o mouse */
-  color: #000; /* cor do texto ao passar o mouse */
-}
-
-
-#dropdownProdutos div:hover {
   background: #ffcc80; /* laranja claro no hover */
   color: #000;
-
-
-
-@media (max-width: 480px) {
-  input, button {
-    width: 95%;          /* mais largo */
-    font-size: 18px;     /* fonte maior */
-    padding: 12px;       /* padding maior */
-    margin: 8px 0;       /* espaço entre elementos */
-  }
-
-  #adicionarBtn, #gerarPdfBtn {
-    display: block;      /* cada botão em linha separada */
-    width: 95%;          
-  }
-
-  th, td {
-    font-size: 12px;     /* mantém a tabela do mesmo tamanho */
-    padding: 6px;
-  }
-
-  #dropdownProdutos {
-    width: 95%;
-  }
 }
 
+/* MOBILE */
+@media (max-width: 480px) {
+  input, button {
+    width: 95% !important;      /* mais largo */
+    font-size: 18px !important; /* fonte maior */
+    padding: 12px !important;   /* padding maior */
+    margin: 8px 0 !important;   /* espaço entre elementos */
+    box-sizing: border-box;
+  }
+
+  /* botões empilhados */
+  #adicionarBtn, #gerarPdfBtn {
+    display: block !important;
+    width: 95% !important;
+    margin: 8px auto !important;
+  }
+
+  /* dropdown produtos */
+  #dropdownProdutos {
+    width: 95% !important;
+  }
+
+  /* tabela mantém o tamanho */
+  th, td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
 </style>
 </head>
 <body>
@@ -200,15 +196,12 @@ button#gerarPdfBtn:hover {
   <th>Preço Unitário</th>
   <th>Qtd</th>
   <th>Total</th>
-
-  <h3>Total do Pedido: R$ <span id="valorTotal">0,00</span></h3>
-
 </tr>
 </thead>
 <tbody id="tabelaPedido"></tbody>
 </table>
+<h3>Total do Pedido: R$ <span id="valorTotal">0,00</span></h3>
 </div>
-
 
 <!-- Div invisível para PDF -->
 <div id="pdfContent" style="display:none; width:80%; margin:0 auto; font-family:Arial, sans-serif;">
@@ -355,4 +348,3 @@ function gerarPDF() {
 </script>
 </body>
 </html>
-
