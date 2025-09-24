@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Gerador de Pedidos Completo</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+  text-align:center;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #444;
+  margin-bottom: 10px;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px 0;
+  width: 50%;
+  max-width: 400px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 700px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+}
+
+th {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #e1f0ff;
+}
+
+/* Botões */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 5px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+button#adicionarBtn {
+  background-color: #007BFF; /* azul */
+  color: #fff;
+}
+
+button#adicionarBtn:hover {
+  background-color: #0056b3;
+}
+
+button#gerarPdfBtn {
+  background-color: #28a745; /* verde */
+  color: #fff;
+}
+
+button#gerarPdfBtn:hover {
+  background-color: #1e7e34;
+}
+
+/* Dropdown produtos */
+#dropdownProdutos {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  font-weight: bold;
+  overflow-y: auto;
+  display: none;
+  background: #5f5f5f; /* cor de fundo */
+  color: #fff; /* cor do texto */
+  z-index: 1000;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+#dropdownProdutos div:hover {
+  background: #777; /* tom mais claro ao passar o mouse */
+  color: #000; /* cor do texto ao passar o mouse */
+}
+
+
+#dropdownProdutos div:hover {
+  background: #ffcc80; /* laranja claro no hover */
+  color: #000;
+
+@media (max-width: 480px) {
+  input, button { width: 90%; font-size: 14px; padding: 8px; }
+  th, td { font-size: 12px; padding: 6px; }
+  #dropdownProdutos { width: 90%; }
+}
+</style>
+</head>
+<body>
+
+<h1>Gerador de Pedido</h1>
+
+<!-- Campos do Cliente -->
+<label>Cliente:</label><br>
+<input id="cliente" placeholder="Digite o nome do cliente"><br>
+<label>Endereço:</label><br>
+<input id="endereco" placeholder="Digite o endereço"><br>
+<label>Telefone:</label><br>
+<input id="telefone" placeholder="Digite o telefone"><br>
+<label>CPF/CNPJ:</label><br>
+<input id="cpfcnpj" placeholder="Digite CPF ou CNPJ"><br>
+
+<!-- Produto -->
+<label>Produto:</label><br>
+<div style="position: relative; display: inline-block; width: 50%; max-width: 400px;">
+  <input id="produtoInput" placeholder="Digite o produto..." style="width: 100%;">
+  <div id="dropdownProdutos"></div>
+</div>
+<br>
+<label>Observação:</label><br>
+<input id="observacaoInput" placeholder="Digite observação (opcional)"><br>
+<label>Quantidade:</label><br>
+<input id="quantidade" type="number" value="1" min="1"><br>
+
+<button id="adicionarBtn" onclick="adicionarItem()">Adicionar Item</button>
+<button id="gerarPdfBtn" onclick="gerarPDF()">Gerar PDF</button>
+
+<h2>Itens do Pedido</h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+  <th>Produto</th>
+  <th>Observação</th>
+  <th>Tamanho</th>
+  <th>Prato</th>
+  <th>Altura</th>
+  <th>Largura</th>
+  <th>Preço Unitário</th>
+  <th>Qtd</th>
+  <th>Total</th>
+
+  <h3>Total do Pedido: R$ <span id="valorTotal">0,00</span></h3>
+
+</tr>
+</thead>
+<tbody id="tabelaPedido"></tbody>
+</table>
+</div>
+
+
+<!-- Div invisível para PDF -->
+<div id="pdfContent" style="display:none; width:80%; margin:0 auto; font-family:Arial, sans-serif;">
+  <h1 style="text-align:center;">Pedido de Compra</h1>
+  <p><strong>Cliente:</strong> <span id="pdfCliente"></span></p>
+  <p><strong>Endereço:</strong> <span id="pdfEndereco"></span></p>
+  <p><strong>Telefone:</strong> <span id="pdfTelefone"></span></p>
+  <p><strong>CPF/CNPJ:</strong> <span id="pdfCpfCnpj"></span></p>
+  <table border="1" cellpadding="4" cellspacing="0" style="border-collapse:collapse; width:100%;">
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Observação</th>
+        <th>Tamanho</th>
+        <th>Prato</th>
+        <th>Altura</th>
+        <th>Largura</th>
+        <th>Preço Unitário</th>
+        <th>Qtd</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody id="pdfTabela"></tbody>
+  </table>
+  <h3>Total do Pedido: R$ <span id="pdfTotal">0,00</span></h3>
+</div>
+
+<script>
+const { jsPDF } = window.jspdf;
+
+const produtos = [
+  { nome: "Vitória Bacia esmaltada", tamanho: "G", prato: "não tem", altura: "11", largura: "32", preco: 92.80 },
+  { nome: "Vitória Bacia rustico", tamanho: "G", prato: "não tem", altura: "11", largura: "32", preco: 111.36 },
+  { nome: "Bacia pintada", tamanho: "G", prato: "não tem", altura: "11", largura: "32", preco: 92.80 },
+  { nome: "Bacia natural", tamanho: "G", prato: "não tem", altura: "11", largura: "32", preco: 111.36 }
+];
+
+let pedido = [];
+
+const inputProduto = document.getElementById("produtoInput");
+const dropdown = document.getElementById("dropdownProdutos");
+
+inputProduto.addEventListener("input", ()=>{
+  const val = inputProduto.value.toLowerCase();
+  dropdown.innerHTML = "";
+  if(val==="") { dropdown.style.display="none"; return; }
+  const filtered = produtos.filter(p => p.nome.toLowerCase().includes(val));
+  filtered.forEach(p=>{
+    const div = document.createElement("div");
+    div.textContent = p.nome;
+    div.onclick = ()=>{
+      inputProduto.value = p.nome;
+      dropdown.style.display="none";
+    };
+    dropdown.appendChild(div);
+  });
+  dropdown.style.display = filtered.length ? "block" : "none";
+});
+
+document.addEventListener("click", (e)=>{
+  if(e.target!==inputProduto) dropdown.style.display="none";
+});
+
+function adicionarItem() {
+  const nome = inputProduto.value;
+  const observacao = document.getElementById("observacaoInput").value;
+  const qtd = parseInt(document.getElementById("quantidade").value);
+  const produto = produtos.find(p=>p.nome===nome);
+  if(!produto){ alert("Produto não encontrado! Selecione da lista."); return; }
+  if(qtd<=0) return;
+
+  pedido.push({...produto, observacao, qtd, total: produto.preco*qtd});
+  inputProduto.value="";
+  document.getElementById("observacaoInput").value="";
+  document.getElementById("quantidade").value=1;
+  mostrarPedido();
+}
+
+function mostrarPedido() {
+  const tbody = document.getElementById("tabelaPedido");
+  tbody.innerHTML="";
+  let total=0;
+  pedido.forEach(item=>{
+    total+=item.total;
+    tbody.innerHTML+=`
+      <tr>
+        <td>${item.nome}</td>
+        <td>${item.observacao || ''}</td>
+        <td>${item.tamanho}</td>
+        <td>${item.prato}</td>
+        <td>${item.altura}</td>
+        <td>${item.largura}</td>
+        <td>${item.preco.toFixed(2)}</td>
+        <td>${item.qtd}</td>
+        <td>${item.total.toFixed(2)}</td>
+      </tr>
+    `;
+  });
+  document.getElementById("valorTotal").textContent = total.toFixed(2);
+}
+
+function gerarPDF() {
+  document.getElementById("pdfCliente").textContent = document.getElementById("cliente").value;
+  document.getElementById("pdfEndereco").textContent = document.getElementById("endereco").value;
+  document.getElementById("pdfTelefone").textContent = document.getElementById("telefone").value;
+  document.getElementById("pdfCpfCnpj").textContent = document.getElementById("cpfcnpj").value;
+
+  const tbody = document.getElementById("pdfTabela");
+  tbody.innerHTML="";
+  let total=0;
+  pedido.forEach(item=>{
+    total+=item.total;
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td>${item.nome}</td>
+      <td>${item.observacao || ''}</td>
+      <td>${item.tamanho}</td>
+      <td>${item.prato}</td>
+      <td>${item.altura}</td>
+      <td>${item.largura}</td>
+      <td>${item.preco.toFixed(2)}</td>
+      <td>${item.qtd}</td>
+      <td>${item.total.toFixed(2)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  document.getElementById("pdfTotal").textContent = total.toFixed(2);
+
+  const pdfDiv = document.getElementById("pdfContent");
+  pdfDiv.style.display = "block";
+
+  const doc = new jsPDF({unit:"pt", format:"a4"});
+  doc.html(pdfDiv,{
+    callback:function(doc){
+      doc.save("pedido.pdf");
+      pdfDiv.style.display="none";
+    },
+    x:10,
+    y:10,
+    width:575,
+    windowWidth:pdfDiv.scrollWidth
+  });
+}
+</script>
+</body>
+</html>
