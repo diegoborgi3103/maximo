@@ -135,6 +135,30 @@ button#gerarPdfBtn:hover {
   th, td { font-size: 12px; padding: 6px; }
   #dropdownProdutos { width: 90%; }
 }
+
+@media (max-width: 480px) {
+  input, button {
+    width: 95%;          /* mais largo */
+    font-size: 18px;     /* fonte maior */
+    padding: 12px;       /* padding maior */
+    margin: 8px 0;       /* espaço entre elementos */
+  }
+
+  #adicionarBtn, #gerarPdfBtn {
+    display: block;      /* cada botão em linha separada */
+    width: 95%;          
+  }
+
+  th, td {
+    font-size: 12px;     /* mantém a tabela do mesmo tamanho */
+    padding: 6px;
+  }
+
+  #dropdownProdutos {
+    width: 95%;
+  }
+}
+
 </style>
 </head>
 <body>
