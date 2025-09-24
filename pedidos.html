@@ -12,22 +12,30 @@ body {
   text-align:center;
   background: #f9f9f9;
   color: #333;
+ 
 }
 
 h1, h2, h3 {
   color: #444;
   margin-bottom: 10px;
+  font-size: 60px;
 }
 
 input, button {
   padding: 10px;
   margin: 5px 0;
-  width: 80%;
-  font-size: 30px;
+  
+  font-size: 50px;
   border-radius: 5px;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
+#produtoInput {
+  width: 80%;
+}
+
+
 
 input:focus {
   border-color: #007BFF;
@@ -76,7 +84,7 @@ button {
   font-weight: bold;
   padding: 10px 20px;
   margin: 5px;
-  font-size: 30px;
+  font-size: 50px;
   transition: 0.3s;
 }
 
@@ -108,6 +116,7 @@ button#gerarPdfBtn:hover {
   border: 1px solid #ccc;
   max-height: 150px;
   font-weight: bold;
+  font-size: 50px;
   overflow-y: auto;
   display: none;
   background: #5f5f5f;
@@ -121,6 +130,16 @@ button#gerarPdfBtn:hover {
   background: #ffcc80;
   color: #000;
 }
+
+label {
+    font-size: 50px;
+   
+}
+
+.teste {
+    width: 80%;
+}
+  
 </style>
 </head>
 <body>
@@ -128,26 +147,30 @@ button#gerarPdfBtn:hover {
 <h1>Gerador de Pedido</h1>
 
 <!-- Campos do Cliente -->
-<label>Cliente:</label><br>
-<input id="cliente" placeholder="Digite o nome do cliente"><br>
-<label>Endereço:</label><br>
-<input id="endereco" placeholder="Digite o endereço"><br>
-<label>Telefone:</label><br>
-<input id="telefone" placeholder="Digite o telefone"><br>
-<label>CPF/CNPJ:</label><br>
-<input id="cpfcnpj" placeholder="Digite CPF ou CNPJ"><br>
+<label class="teste" for="cliente">Cliente:</label><br>
+<input class="teste" id="cliente" placeholder="Digite o nome do cliente"><br>
+
+<label class="teste" >Endereço:</label><br>
+<input class="teste" id="endereco" placeholder="Digite o endereço"><br>
+<label class="teste">Telefone:</label><br>
+<input class="teste"  id="telefone" placeholder="Digite o telefone"><br>
+<label class="teste">CPF/CNPJ:</label><br>
+<input class="teste" id="cpfcnpj" placeholder="Digite CPF ou CNPJ"><br>
 
 <!-- Produto -->
-<label>Produto:</label><br>
-<div style="position: relative; display: inline-block;">
-  <input id="produtoInput" placeholder="Digite o produto..." style="width: 400px;">
+<!-- Produto -->
+<label >Produto:</label><br>
+<div  style="position: relative; display: inline-block; width: 90%;">
+  <input  class="teste" id="produtoInput" placeholder="Digite o produto..." style="width: 90%;">
+
   <div id="dropdownProdutos"></div>
 </div>
+
 <br>
-<label>Observação:</label><br>
-<input id="observacaoInput" placeholder="Digite observação (opcional)"><br>
-<label>Quantidade:</label><br>
-<input id="quantidade" type="number" value="1" min="1"><br>
+<label class="teste">Observação:</label><br>
+<input class="teste" id="observacaoInput" placeholder="Digite observação (opcional)"><br>
+<label class="teste" >Quantidade:</label><br>
+<input class="teste" id="quantidade" type="number" value="1" min="1"><br>
 
 <button id="adicionarBtn" onclick="adicionarItem()">Adicionar Item</button>
 <button id="gerarPdfBtn" onclick="gerarPDF()">Gerar PDF</button>
@@ -318,4 +341,5 @@ function gerarPDF() {
 </script>
 </body>
 </html>
+
 
